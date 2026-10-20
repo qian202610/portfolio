@@ -1,0 +1,186 @@
+# Pages CMS 后台配置（app.pagescms.org）
+# 放在仓库根目录，Pages CMS 会自动读取
+
+media:
+  input: images
+  output: /images
+
+content:
+  - name: site
+    label: 作品集内容
+    type: file
+    path: content/site.json
+    format: json
+    fields:
+      - name: hero
+        label: 一、首页大标题区
+        type: object
+        fields:
+          - { name: title, label: 大标题, type: string }
+          - { name: subtitle, label: 副标题, type: text }
+          - name: tags
+            label: 标签
+            type: string
+            list: true
+
+      - name: design
+        label: 二、设计作品集
+        type: object
+        fields:
+          - { name: title, label: 栏目标题, type: string }
+          - { name: desc, label: 栏目说明, type: text }
+          - name: works
+            label: 作品卡片
+            type: object
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{title}"
+            fields:
+              - { name: title, label: 标题, type: string }
+              - { name: desc, label: 说明, type: text }
+              - { name: image, label: 作品图, type: image, description: "上传图片；不上传则显示下面的图标" }
+              - { name: icon, label: 图标, type: string, description: "没上传图片时显示的表情，如 🛏️" }
+              - { name: bg, label: 底色, type: string, description: "可选：bg-textile / bg-scarf / bg-carpet / bg-logo / bg-manga / bg-writing / bg-hobby" }
+              - name: tags
+                label: 标签
+                type: string
+                list: true
+              - { name: link, label: 跳转链接, type: string, description: "点卡片要跳转的网址，可留空" }
+
+      - name: copywriting
+        label: 三、文案能力案例
+        type: object
+        fields:
+          - { name: title, label: 栏目标题, type: string }
+          - { name: desc, label: 栏目说明, type: text }
+          - name: items
+            label: 文案卡片
+            type: object
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{category}"
+            fields:
+              - { name: quote, label: 文案金句, type: text }
+              - { name: category, label: 品类, type: string }
+              - { name: effect, label: 效果, type: string }
+
+      - name: manga
+        label: 四、漫剧作品
+        type: object
+        fields:
+          - { name: title, label: 栏目标题, type: string }
+          - { name: desc, label: 栏目说明, type: text }
+          - name: works
+            label: 作品卡片
+            type: object
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{title}"
+            fields:
+              - { name: title, label: 标题, type: string }
+              - { name: desc, label: 说明, type: text }
+              - { name: image, label: 封面图, type: image, description: "上传图片；不上传则显示下面的图标" }
+              - { name: icon, label: 图标, type: string, description: "没上传图片时显示的表情，如 🎭" }
+              - { name: bg, label: 底色, type: string, description: "可选：bg-textile / bg-scarf / bg-carpet / bg-logo / bg-manga / bg-writing / bg-hobby" }
+              - name: tags
+                label: 标签
+                type: string
+                list: true
+              - { name: link, label: 跳转链接, type: string, description: "点卡片要跳转的网址（如抖音/B站视频链接），可留空" }
+
+      - name: services
+        label: 五、视频服务
+        type: object
+        fields:
+          - { name: title, label: 栏目标题, type: string }
+          - { name: desc, label: 栏目说明, type: text }
+          - name: works
+            label: 服务卡片
+            type: object
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{title}"
+            fields:
+              - { name: title, label: 标题, type: string }
+              - { name: desc, label: 说明, type: text }
+              - { name: image, label: 配图, type: image, description: "上传图片；不上传则显示下面的图标" }
+              - { name: icon, label: 图标, type: string, description: "没上传图片时显示的表情，如 🎥" }
+              - { name: bg, label: 底色, type: string, description: "可选：bg-textile / bg-scarf / bg-carpet / bg-logo / bg-manga / bg-writing / bg-hobby" }
+              - name: tags
+                label: 标签
+                type: string
+                list: true
+              - { name: link, label: 跳转链接, type: string, description: "可留空" }
+
+      - name: writing
+        label: 六、小说 & 剧本
+        type: object
+        fields:
+          - { name: title, label: 栏目标题, type: string }
+          - { name: desc, label: 栏目说明, type: text }
+          - name: works
+            label: 作品卡片
+            type: object
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{title}"
+            fields:
+              - { name: title, label: 标题, type: string }
+              - { name: desc, label: 说明, type: text }
+              - { name: image, label: 配图, type: image, description: "上传图片；不上传则显示下面的图标" }
+              - { name: icon, label: 图标, type: string, description: "没上传图片时显示的表情，如 📝" }
+              - { name: bg, label: 底色, type: string, description: "可选：bg-textile / bg-scarf / bg-carpet / bg-logo / bg-manga / bg-writing / bg-hobby" }
+              - name: tags
+                label: 标签
+                type: string
+                list: true
+              - { name: link, label: 跳转链接, type: string, description: "可留空" }
+
+      - name: hobby
+        label: 七、业余爱好
+        type: object
+        fields:
+          - { name: title, label: 栏目标题, type: string }
+          - { name: desc, label: 栏目说明, type: text }
+          - name: works
+            label: 卡片
+            type: object
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{title}"
+            fields:
+              - { name: title, label: 标题, type: string }
+              - { name: desc, label: 说明, type: text }
+              - { name: image, label: 配图, type: image, description: "上传图片；不上传则显示下面的图标" }
+              - { name: icon, label: 图标, type: string, description: "没上传图片时显示的表情，如 🧘" }
+              - { name: bg, label: 底色, type: string, description: "可选：bg-textile / bg-scarf / bg-carpet / bg-logo / bg-manga / bg-writing / bg-hobby" }
+              - name: tags
+                label: 标签
+                type: string
+                list: true
+
+      - name: contact
+        label: 八、联系方式
+        type: object
+        fields:
+          - { name: title, label: 栏目标题, type: string }
+          - { name: desc, label: 说明, type: text }
+          - name: items
+            label: 联系方式条目
+            type: object
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{text}"
+            fields:
+              - { name: icon, label: 图标, type: string, description: "如 💬 📕 🎵 📧" }
+              - { name: text, label: 显示文字, type: string, description: "如 微信：yourname" }
+              - { name: link, label: 点击跳转链接, type: string, description: "可留空；填了就能点击跳转" }
+
+      - { name: footer, label: 九、页脚文字, type: string }

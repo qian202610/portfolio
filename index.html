@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>个人作品集 | 设计师 & 创作者</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --primary: #e85d75;
+    --secondary: #f4a261;
+    --accent: #2a9d8f;
+    --dark: #264653;
+    --light: #fafafa;
+    --gray: #6c757d;
+    --card-bg: #ffffff;
+    --shadow: 0 4px 20px rgba(0,0,0,0.08);
+  }
+  body {
+    font-family: -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    background: var(--light);
+    color: var(--dark);
+    line-height: 1.6;
+  }
+
+  /* 导航栏 */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  }
+  nav ul {
+    display: flex; justify-content: center; gap: 30px;
+    list-style: none; padding: 15px 0; flex-wrap: wrap;
+  }
+  nav a {
+    text-decoration: none; color: var(--dark);
+    font-weight: 500; font-size: 15px;
+    transition: color 0.3s;
+  }
+  nav a:hover { color: var(--primary); }
+
+  /* Hero 区域 */
+  .hero {
+    min-height: 100vh;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center;
+    background: linear-gradient(135deg, #fce4ec 0%, #fff3e0 50%, #e0f2f1 100%);
+    padding: 80px 20px;
+  }
+  .hero h1 {
+    font-size: 3.5em; margin-bottom: 20px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .hero .subtitle {
+    font-size: 1.3em; color: var(--gray);
+    margin-bottom: 30px; max-width: 600px;
+  }
+  .hero .tags {
+    display: flex; gap: 12px; flex-wrap: wrap;
+    justify-content: center;
+  }
+  .hero .tag {
+    padding: 8px 20px; background: white;
+    border-radius: 20px; font-size: 14px;
+    box-shadow: var(--shadow);
+  }
+
+  /* 通用区块 */
+  section { padding: 80px 20px; }
+  .container { max-width: 1200px; margin: 0 auto; }
+  .section-title {
+    font-size: 2.5em; text-align: center;
+    margin-bottom: 15px; color: var(--dark);
+  }
+  .section-desc {
+    text-align: center; color: var(--gray);
+    margin-bottom: 50px; font-size: 1.1em;
+  }
+
+  /* 卡片网格 */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+  }
+  .card {
+    background: var(--card-bg);
+    border-radius: 16px; overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+  }
+  .card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+  }
+  .card-img {
+    height: 200px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 4em; color: white;
+  }
+  .card-img img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+  }
+  .card-body { padding: 20px; }
+  .card-body h3 { font-size: 1.3em; margin-bottom: 10px; }
+  .card-body p { color: var(--gray); font-size: 0.95em; }
+  .card-tag {
+    display: inline-block; margin-top: 12px;
+    padding: 4px 12px; background: #f0f0f0;
+    border-radius: 12px; font-size: 12px; color: var(--gray);
+  }
+
+  /* 各分类背景色 */
+  .bg-textile { background: linear-gradient(135deg, #ff9a9e, #fad0c4); }
+  .bg-scarf { background: linear-gradient(135deg, #a18cd1, #fbc2eb); }
+  .bg-carpet { background: linear-gradient(135deg, #f6d365, #fda085); }
+  .bg-logo { background: linear-gradient(135deg, #84fab0, #8fd3f4); }
+  .bg-manga { background: linear-gradient(135deg, #f093fb, #f5576c); }
+  .bg-writing { background: linear-gradient(135deg, #4facfe, #00f2fe); }
+  .bg-hobby { background: linear-gradient(135deg, #43e97b, #38f9d7); }
+
+  /* 文案案例 */
+  .copywriting-card {
+    background: white; padding: 30px;
+    border-radius: 16px; box-shadow: var(--shadow);
+    margin-bottom: 20px;
+  }
+  .copywriting-card .quote {
+    font-size: 1.2em; font-style: italic;
+    color: var(--dark); margin-bottom: 15px;
+    border-left: 4px solid var(--primary);
+    padding-left: 15px;
+  }
+
+  /* 联系区域 */
+  .contact {
+    background: linear-gradient(135deg, var(--dark), #1a374d);
+    color: white; text-align: center;
+  }
+  .contact h2 { color: white; }
+  .contact-desc { color: #b0c4de; }
+  .contact-links {
+    display: flex; justify-content: center; gap: 30px;
+    margin-top: 40px; flex-wrap: wrap;
+  }
+  .contact-item {
+    background: rgba(255,255,255,0.1);
+    padding: 20px 30px; border-radius: 12px;
+    transition: background 0.3s;
+  }
+  .contact-item:hover { background: rgba(255,255,255,0.2); }
+  .contact-item span { font-size: 1.1em; }
+
+  /* 页脚 */
+  footer {
+    text-align: center; padding: 30px;
+    background: var(--dark); color: #b0c4de;
+    font-size: 14px;
+  }
+
+  /* 返回顶部 */
+  .back-top {
+    position: fixed; bottom: 30px; right: 30px;
+    width: 50px; height: 50px; border-radius: 50%;
+    background: var(--primary); color: white;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; box-shadow: var(--shadow);
+    opacity: 0; transition: opacity 0.3s;
+    border: none; font-size: 20px;
+  }
+  .back-top.show { opacity: 1; }
+
+  /* 响应式 */
+  @media (max-width: 768px) {
+    .hero h1 { font-size: 2.2em; }
+    .section-title { font-size: 1.8em; }
+    nav ul { gap: 15px; }
+    nav a { font-size: 13px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- 导航栏 -->
+<nav>
+  <ul>
+    <li><a href="#home">首页</a></li>
+    <li><a href="#design">设计作品</a></li>
+    <li><a href="#copywriting">文案案例</a></li>
+    <li><a href="#manga">漫剧作品</a></li>
+    <li><a href="#services">视频服务</a></li>
+    <li><a href="#writing">小说剧本</a></li>
+    <li><a href="#hobby">业余爱好</a></li>
+    <li><a href="#contact">联系我</a></li>
+  </ul>
+</nav>
+
+<!-- Hero -->
+<section id="home" class="hero">
+  <h1 id="hero-title">你好，我是设计师 & 创作者</h1>
+  <p class="subtitle" id="hero-subtitle">用图案讲故事，用文字传递温度，用漫剧连接世界</p>
+  <div class="tags" id="hero-tags">
+    <span class="tag">🎨 图案设计</span>
+    <span class="tag">✍️ 文案创作</span>
+    <span class="tag">🎬 AI漫剧</span>
+    <span class="tag">📖 剧本写作</span>
+  </div>
+</section>
+
+<!-- 设计作品集 -->
+<section id="design">
+  <div class="container">
+    <h2 class="section-title" id="title-design">🎨 设计作品集</h2>
+    <p class="section-desc" id="desc-design">家纺 · 服装 · 丝巾 · 鞋帽 · 地毯 · LOGO · 图案设计</p>
+    <div class="grid" id="grid-design">
+
+      <div class="card">
+        <div class="card-img bg-textile">🛏️</div>
+        <div class="card-body">
+          <h3>家纺设计</h3>
+          <p>床品四件套、抱枕、窗帘图案设计，融合国风与现代美学</p>
+          <span class="card-tag">家纺</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img bg-scarf">🧣</div>
+        <div class="card-body">
+          <h3>丝巾设计</h3>
+          <p>方巾、长巾图案设计，花卉、动物、几何元素的创意演绎</p>
+          <span class="card-tag">丝巾</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img bg-carpet">🪴</div>
+        <div class="card-body">
+          <h3>地毯设计</h3>
+          <p>客厅、卧室地毯图案，民族风、波西米亚风、现代简约风</p>
+          <span class="card-tag">地毯</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img bg-logo">👕</div>
+        <div class="card-body">
+          <h3>服装鞋帽</h3>
+          <p>T恤印花、鞋帽图案设计，美式风格、国潮风格</p>
+          <span class="card-tag">服装</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img bg-logo">✨</div>
+        <div class="card-body">
+          <h3>LOGO & VI</h3>
+          <p>品牌LOGO、视觉识别系统设计，打造独特品牌形象</p>
+          <span class="card-tag">VI设计</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img bg-scarf">🎨</div>
+        <div class="card-body">
+          <h3>图案设计</h3>
+          <p>无缝平铺图案、文创贴纸、水杯图案等多品类设计</p>
+          <span class="card-tag">图案</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- 文案案例 -->
+<section id="copywriting" style="background: #f5f5f5;">
+  <div class="container">
+    <h2 class="section-title" id="title-copywriting">✍️ 文案能力案例</h2>
+    <p class="section-desc" id="desc-copywriting">爆款标题 · 产品文案 · 品牌故事</p>
+    <div class="grid" id="grid-copywriting">
+
+      <div class="copywriting-card">
+        <p class="quote">"她把春天穿在了身上，每一朵花都在诉说温柔的故事"</p>
+        <p><strong>品类：</strong>丝巾系列文案</p>
+        <p><strong>效果：</strong>小红书点赞 2.3w+</p>
+      </div>
+
+      <div class="copywriting-card">
+        <p class="quote">"不是所有的睡眠都叫休息，这套床品让你每晚住进云朵里"</p>
+        <p><strong>品类：</strong>家纺产品文案</p>
+        <p><strong>效果：</strong>转化率提升 40%</p>
+      </div>
+
+      <div class="copywriting-card">
+        <p class="quote">"脚下的每一步，都踏着自由的风"</p>
+        <p><strong>品类：</strong>鞋履品牌Slogan</p>
+        <p><strong>效果：</strong>品牌传播语</p>
+      </div>
+
+      <div class="copywriting-card">
+        <p class="quote">"从一根纱到一个家，我们织的不只是布，是生活"</p>
+        <p><strong>品类：</strong>品牌故事</p>
+        <p><strong>效果：</strong>官方品牌片文案</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- 漫剧作品 -->
+<section id="manga">
+  <div class="container">
+    <h2 class="section-title" id="title-manga">🎬 漫剧作品</h2>
+    <p class="section-desc" id="desc-manga">AI漫剧制作 · 分镜 · 剪辑 · 成片</p>
+    <div class="grid" id="grid-manga">
+
+      <div class="card">
+        <div class="card-img bg-manga">🎭</div>
+        <div class="card-body">
+          <h3>仿真人剧《剧名待填》</h3>
+          <p>真人风格AI漫剧，从剧本到成片全流程制作</p>
+          <span class="card-tag">仿真人</span>
+          <span class="card-tag">已上线</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img bg-manga">📚</div>
+        <div class="card-body">
+          <h3>短篇改编剧《剧名待填》</h3>
+          <p>2万字短故事改编AI漫剧，分镜视频制作中</p>
+          <span class="card-tag">改编剧</span>
+          <span class="card-tag">制作中</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img bg-manga">✨</div>
+        <div class="card-body">
+          <h3>更多漫剧</h3>
+          <p>持续更新中，月产3部滚动产出</p>
+          <span class="card-tag">敬请期待</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- 视频服务 -->
+<section id="services" style="background: #f5f5f5;">
+  <div class="container">
+    <h2 class="section-title" id="title-services">🎬 视频服务</h2>
+    <p class="section-desc" id="desc-services">企业宣传 · 电商视频 · 课程动画 · 虚拟IP · 婚礼记录</p>
+    <div class="grid" id="grid-services">
+
+      <div class="card">
+        <div class="card-img bg-manga">🎥</div>
+        <div class="card-body">
+          <h3>企业宣传片 / 品牌故事</h3>
+          <p>企业宣传片、品牌故事动画、年会开场视频，用AI降低传统宣传片成本，周期快</p>
+          <span class="card-tag">企业</span>
+          <span class="card-tag">高单价</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img bg-writing">🛍️</div>
+        <div class="card-body">
+          <h3>电商主图 / 详情页视频</h3>
+          <p>AI服装换装、产品展示视频，15-30秒主图视频直接提升转化率</p>
+          <span class="card-tag">电商</span>
+          <span class="card-tag">高单价</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img bg-scarf">📚</div>
+        <div class="card-body">
+          <h3>课程 / 知识付费动画</h3>
+          <p>回形针风格动画讲解视频，知识点动画化，完播率比真人讲解更高</p>
+          <span class="card-tag">教育</span>
+          <span class="card-tag">高单价</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img bg-hobby">🤖</div>
+        <div class="card-body">
+          <h3>虚拟形象 IP 打造</h3>
+          <p>把IP做成会动的数字人/动画角色，一个形象长期复用，持续产出内容变现</p>
+          <span class="card-tag">IP</span>
+          <span class="card-tag">长期运营</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img bg-textile">💒</div>
+        <div class="card-body">
+          <h3>婚礼开场 / 成长记录</h3>
+          <p>婚礼开场视频、个人成长记录，1-3分钟成片配配乐，温馨有纪念意义</p>
+          <span class="card-tag">个人向</span>
+          <span class="card-tag">稳定接单</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- 小说剧本 -->
+<section id="writing" style="background: #f5f5f5;">
+  <div class="container">
+    <h2 class="section-title" id="title-writing">📖 小说 & 剧本</h2>
+    <p class="section-desc" id="desc-writing">短篇故事 · 漫剧剧本 · 分镜脚本</p>
+    <div class="grid" id="grid-writing">
+
+      <div class="card">
+        <div class="card-img bg-writing">📝</div>
+        <div class="card-body">
+          <h3>短篇故事集</h3>
+          <p>2万字以内短故事创作，适合改编AI漫剧</p>
+          <span class="card-tag">短篇小说</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img bg-writing">🎬</div>
+        <div class="card-body">
+          <h3>漫剧剧本</h3>
+          <p>分镜脚本、对白设计、爆款开头钩子写作</p>
+          <span class="card-tag">剧本</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img bg-writing">📋</div>
+        <div class="card-body">
+          <h3>文案策划</h3>
+          <p>品牌故事、产品文案、活动策划方案</p>
+          <span class="card-tag">策划</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- 业余爱好 -->
+<section id="hobby">
+  <div class="container">
+    <h2 class="section-title" id="title-hobby">🌟 业余爱好</h2>
+    <p class="section-desc" id="desc-hobby">生活不止工作，还有诗和远方</p>
+    <div class="grid" id="grid-hobby">
+
+      <div class="card">
+        <div class="card-img bg-hobby">🧘</div>
+        <div class="card-body">
+          <h3>八段锦 & 瑜伽</h3>
+          <p>每日晨练，修身养性，保持身心平衡</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img bg-hobby">📚</div>
+        <div class="card-body">
+          <h3>阅读</h3>
+          <p>樊登读书、写作课、心理学，持续学习成长</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img bg-hobby">🤖</div>
+        <div class="card-body">
+          <h3>AI探索</h3>
+          <p>研究AI工具、自动化工作流、多Agent协作</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- 联系方式 -->
+<section id="contact" class="contact">
+  <h2 class="section-title" id="title-contact">📬 联系我</h2>
+  <p class="section-desc contact-desc" id="contact-desc">设计合作 · 视频定制 · 漫剧约稿 · 文案策划</p>
+  <div class="contact-links" id="contact-links">
+    <div class="contact-item">
+      <span>💬 微信：你的微信号</span>
+    </div>
+    <div class="contact-item">
+      <span>📕 小红书：你的账号</span>
+    </div>
+    <div class="contact-item">
+      <span>🎵 抖音：你的账号</span>
+    </div>
+    <div class="contact-item">
+      <span>📧 邮箱：你的邮箱</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p id="footer-text">© 2026 个人作品集 | 用心设计，真诚创作</p>
+</footer>
+
+<button class="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+  // 返回顶部按钮显示/隐藏
+  window.addEventListener('scroll', () => {
+    const btn = document.querySelector('.back-top');
+    if (window.scrollY > 500) btn.classList.add('show');
+    else btn.classList.remove('show');
+  });
+
+  // 平滑滚动
+  document.querySelectorAll('nav a').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) target.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+
+  // 卡片点击提示（后续可改为链接到详情页）
+  document.querySelectorAll('.card').forEach(card => {
+    card.addEventListener('click', () => {
+      const title = card.querySelector('h3').textContent;
+      console.log('点击了：' + title);
+      // 后续可跳转详情页
+    });
+  });
+</script>
+
+<script>
+  // ===== 内容渲染：从 content/site.json 读取（可在后台编辑） =====
+  (function () {
+    var SITE_DATA = null;
+
+    function setText(id, value) {
+      var el = document.getElementById(id);
+      if (el && value) el.textContent = value;
+    }
+
+    function cardHTML(w) {
+      var media = w.image
+        ? '<img src="' + w.image + '" alt="' + (w.title || '') + '" loading="lazy">'
+        : (w.icon || '');
+      var tags = (w.tags || []).map(function (t) {
+        return '<span class="card-tag">' + t + '</span>';
+      }).join('');
+      var linkAttr = w.link ? ' data-link="' + w.link + '"' : '';
+      return '<div class="card"' + linkAttr + '>' +
+        '<div class="card-img ' + (w.bg || 'bg-textile') + '">' + media + '</div>' +
+        '<div class="card-body"><h3>' + (w.title || '') + '</h3>' +
+        '<p>' + (w.desc || '') + '</p>' + tags + '</div></div>';
+    }
+
+    function renderHero(h) {
+      if (!h) return;
+      setText('hero-title', h.title);
+      setText('hero-subtitle', h.subtitle);
+      var g = document.getElementById('hero-tags');
+      if (g && h.tags) {
+        g.innerHTML = h.tags.map(function (t) {
+          return '<span class="tag">' + t + '</span>';
+        }).join('');
+      }
+    }
+
+    function renderCardSection(key) {
+      var s = SITE_DATA[key];
+      var grid = document.getElementById('grid-' + key);
+      if (!s || !grid) return;
+      setText('title-' + key, s.title);
+      setText('desc-' + key, s.desc);
+      grid.innerHTML = (s.works || []).map(cardHTML).join('');
+    }
+
+    function renderCopywriting(c) {
+      var grid = document.getElementById('grid-copywriting');
+      if (!c || !grid) return;
+      setText('title-copywriting', c.title);
+      setText('desc-copywriting', c.desc);
+      grid.innerHTML = (c.items || []).map(function (it) {
+        return '<div class="copywriting-card">' +
+          '<p class="quote">' + (it.quote || '') + '</p>' +
+          '<p><strong>品类：</strong>' + (it.category || '') + '</p>' +
+          '<p><strong>效果：</strong>' + (it.effect || '') + '</p>' +
+          '</div>';
+      }).join('');
+    }
+
+    function renderContact(c) {
+      if (!c) return;
+      setText('title-contact', c.title);
+      setText('contact-desc', c.desc);
+      var links = document.getElementById('contact-links');
+      if (!links) return;
+      links.innerHTML = (c.items || []).map(function (it) {
+        var inner = '<span>' + (it.icon ? it.icon + ' ' : '') + (it.text || '') + '</span>';
+        if (it.link) {
+          return '<a class="contact-item" href="' + it.link + '" target="_blank" rel="noopener" ' +
+            'style="text-decoration:none;color:inherit">' + inner + '</a>';
+        }
+        return '<div class="contact-item">' + inner + '</div>';
+      }).join('');
+    }
+
+    function renderSite(data) {
+      SITE_DATA = data;
+      renderHero(data.hero);
+      ['design', 'manga', 'services', 'writing', 'hobby'].forEach(renderCardSection);
+      renderCopywriting(data.copywriting);
+      renderContact(data.contact);
+      setText('footer-text', data.footer);
+      document.querySelectorAll('.card[data-link]').forEach(function (card) {
+        card.addEventListener('click', function () {
+          window.open(card.getAttribute('data-link'), '_blank');
+        });
+      });
+    }
+
+    // 线上从后台数据文件加载；本地双击预览读取失败时，自动沿用页面内置内容
+    fetch('content/site.json', { cache: 'no-store' })
+      .then(function (res) { return res.ok ? res.json() : Promise.reject('HTTP ' + res.status); })
+      .then(renderSite)
+      .catch(function (err) {
+        console.warn('未加载 content/site.json（本地预览或离线），使用页面内置内容。', err);
+      });
+  })();
+</script>
+
+</body>
+</html>
