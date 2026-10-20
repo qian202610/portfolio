@@ -1,7 +1,7 @@
 {
   "hero": {
-    "title": "你好，我是设计师 & 创作者",
-    "subtitle": "用图案讲故事，用文字传递温度，用漫剧连接世界",
+    "title": "用心做好每一份作品",
+    "subtitle": "用图案讲故事，用文字传递温度，用视频连接世界",
     "tags": [
       "🎨 图案设计",
       "✍️ 文案创作",
@@ -15,52 +15,58 @@
     "desc": "家纺 · 服装 · 丝巾 · 鞋帽 · 地毯 · LOGO · 图案设计",
     "works": [
       {
-        "icon": "🛏️",
-        "bg": "bg-textile",
         "title": "家纺设计",
         "desc": "床品四件套、抱枕、窗帘图案设计，融合国风与现代美学",
-        "tags": ["家纺"],
-        "image": ""
+        "icon": "🛏️",
+        "bg": "bg-textile",
+        "tags": [
+          "家纺"
+        ]
       },
       {
-        "icon": "🧣",
-        "bg": "bg-scarf",
         "title": "丝巾设计",
         "desc": "方巾、长巾图案设计，花卉、动物、几何元素的创意演绎",
-        "tags": ["丝巾"],
-        "image": ""
+        "icon": "🧣",
+        "bg": "bg-scarf",
+        "tags": [
+          "丝巾"
+        ]
       },
       {
-        "icon": "🪴",
-        "bg": "bg-carpet",
         "title": "地毯设计",
         "desc": "客厅、卧室地毯图案，民族风、波西米亚风、现代简约风",
-        "tags": ["地毯"],
-        "image": ""
+        "icon": "🪴",
+        "bg": "bg-carpet",
+        "tags": [
+          "地毯"
+        ]
       },
       {
-        "icon": "👕",
-        "bg": "bg-logo",
         "title": "服装鞋帽",
         "desc": "T恤印花、鞋帽图案设计，美式风格、国潮风格",
-        "tags": ["服装"],
-        "image": ""
+        "icon": "👕",
+        "bg": "bg-logo",
+        "tags": [
+          "服装"
+        ]
       },
       {
-        "icon": "✨",
-        "bg": "bg-logo",
         "title": "LOGO & VI",
         "desc": "品牌LOGO、视觉识别系统设计，打造独特品牌形象",
-        "tags": ["VI设计"],
-        "image": ""
+        "icon": "✨",
+        "bg": "bg-logo",
+        "tags": [
+          "VI设计"
+        ]
       },
       {
-        "icon": "🎨",
-        "bg": "bg-scarf",
         "title": "图案设计",
         "desc": "无缝平铺图案、文创贴纸、水杯图案等多品类设计",
-        "tags": ["图案"],
-        "image": ""
+        "icon": "🎨",
+        "bg": "bg-scarf",
+        "tags": [
+          "图案"
+        ]
       }
     ]
   },
@@ -95,31 +101,33 @@
     "desc": "AI漫剧制作 · 分镜 · 剪辑 · 成片",
     "works": [
       {
-        "icon": "🎭",
-        "bg": "bg-manga",
         "title": "仿真人剧《剧名待填》",
         "desc": "真人风格AI漫剧，从剧本到成片全流程制作",
-        "tags": ["仿真人", "已上线"],
-        "image": "",
-        "link": ""
+        "icon": "🎭",
+        "bg": "bg-manga",
+        "tags": [
+          "仿真人",
+          "已上线"
+        ]
       },
       {
-        "icon": "📚",
-        "bg": "bg-manga",
         "title": "短篇改编剧《剧名待填》",
         "desc": "2万字短故事改编AI漫剧，分镜视频制作中",
-        "tags": ["改编剧", "制作中"],
-        "image": "",
-        "link": ""
+        "icon": "📚",
+        "bg": "bg-manga",
+        "tags": [
+          "改编剧",
+          "制作中"
+        ]
       },
       {
-        "icon": "✨",
-        "bg": "bg-manga",
         "title": "更多漫剧",
         "desc": "持续更新中，月产3部滚动产出",
-        "tags": ["敬请期待"],
-        "image": "",
-        "link": ""
+        "icon": "✨",
+        "bg": "bg-manga",
+        "tags": [
+          "敬请期待"
+        ]
       }
     ]
   },
@@ -128,44 +136,54 @@
     "desc": "企业宣传 · 电商视频 · 课程动画 · 虚拟IP · 婚礼记录",
     "works": [
       {
-        "icon": "🎥",
-        "bg": "bg-manga",
         "title": "企业宣传片 / 品牌故事",
         "desc": "企业宣传片、品牌故事动画、年会开场视频，用AI降低传统宣传片成本，周期快",
-        "tags": ["企业", "高单价"],
-        "image": ""
+        "icon": "🎥",
+        "bg": "bg-manga",
+        "tags": [
+          "企业",
+          "高单价"
+        ]
       },
       {
-        "icon": "🛍️",
-        "bg": "bg-writing",
         "title": "电商主图 / 详情页视频",
         "desc": "AI服装换装、产品展示视频，15-30秒主图视频直接提升转化率",
-        "tags": ["电商", "高单价"],
-        "image": ""
+        "icon": "🛍️",
+        "bg": "bg-writing",
+        "tags": [
+          "电商",
+          "高单价"
+        ]
       },
       {
-        "icon": "📚",
-        "bg": "bg-scarf",
         "title": "课程 / 知识付费动画",
         "desc": "回形针风格动画讲解视频，知识点动画化，完播率比真人讲解更高",
-        "tags": ["教育", "高单价"],
-        "image": ""
+        "icon": "📚",
+        "bg": "bg-scarf",
+        "tags": [
+          "教育",
+          "高单价"
+        ]
       },
       {
-        "icon": "🤖",
-        "bg": "bg-hobby",
         "title": "虚拟形象 IP 打造",
         "desc": "把IP做成会动的数字人/动画角色，一个形象长期复用，持续产出内容变现",
-        "tags": ["IP", "长期运营"],
-        "image": ""
+        "icon": "🤖",
+        "bg": "bg-hobby",
+        "tags": [
+          "IP",
+          "长期运营"
+        ]
       },
       {
-        "icon": "💒",
-        "bg": "bg-textile",
         "title": "婚礼开场 / 成长记录",
         "desc": "婚礼开场视频、个人成长记录，1-3分钟成片配配乐，温馨有纪念意义",
-        "tags": ["个人向", "稳定接单"],
-        "image": ""
+        "icon": "💒",
+        "bg": "bg-textile",
+        "tags": [
+          "个人向",
+          "稳定接单"
+        ]
       }
     ]
   },
@@ -174,28 +192,31 @@
     "desc": "短篇故事 · 漫剧剧本 · 分镜脚本",
     "works": [
       {
-        "icon": "📝",
-        "bg": "bg-writing",
         "title": "短篇故事集",
         "desc": "2万字以内短故事创作，适合改编AI漫剧",
-        "tags": ["短篇小说"],
-        "image": ""
+        "icon": "📝",
+        "bg": "bg-writing",
+        "tags": [
+          "短篇小说"
+        ]
       },
       {
-        "icon": "🎬",
-        "bg": "bg-writing",
         "title": "漫剧剧本",
         "desc": "分镜脚本、对白设计、爆款开头钩子写作",
-        "tags": ["剧本"],
-        "image": ""
+        "icon": "🎬",
+        "bg": "bg-writing",
+        "tags": [
+          "剧本"
+        ]
       },
       {
-        "icon": "📋",
-        "bg": "bg-writing",
         "title": "文案策划",
         "desc": "品牌故事、产品文案、活动策划方案",
-        "tags": ["策划"],
-        "image": ""
+        "icon": "📋",
+        "bg": "bg-writing",
+        "tags": [
+          "策划"
+        ]
       }
     ]
   },
@@ -204,28 +225,22 @@
     "desc": "生活不止工作，还有诗和远方",
     "works": [
       {
-        "icon": "🧘",
-        "bg": "bg-hobby",
         "title": "八段锦 & 瑜伽",
         "desc": "每日晨练，修身养性，保持身心平衡",
-        "tags": [],
-        "image": ""
+        "icon": "🧘",
+        "bg": "bg-hobby"
       },
       {
-        "icon": "📚",
-        "bg": "bg-hobby",
         "title": "阅读",
         "desc": "樊登读书、写作课、心理学，持续学习成长",
-        "tags": [],
-        "image": ""
+        "icon": "📚",
+        "bg": "bg-hobby"
       },
       {
-        "icon": "🤖",
-        "bg": "bg-hobby",
         "title": "AI探索",
         "desc": "研究AI工具、自动化工作流、多Agent协作",
-        "tags": [],
-        "image": ""
+        "icon": "🤖",
+        "bg": "bg-hobby"
       }
     ]
   },
@@ -233,10 +248,22 @@
     "title": "📬 联系我",
     "desc": "设计合作 · 视频定制 · 漫剧约稿 · 文案策划",
     "items": [
-      { "icon": "💬", "text": "微信：你的微信号", "link": "" },
-      { "icon": "📕", "text": "小红书：你的账号", "link": "" },
-      { "icon": "🎵", "text": "抖音：你的账号", "link": "" },
-      { "icon": "📧", "text": "邮箱：你的邮箱", "link": "" }
+      {
+        "icon": "💬",
+        "text": "微信：你的微信号"
+      },
+      {
+        "icon": "📕",
+        "text": "小红书：你的账号"
+      },
+      {
+        "icon": "🎵",
+        "text": "抖音：你的账号"
+      },
+      {
+        "icon": "📧",
+        "text": "邮箱：你的邮箱"
+      }
     ]
   },
   "footer": "© 2026 个人作品集 | 用心设计，真诚创作"
